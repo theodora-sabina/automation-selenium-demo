@@ -1,18 +1,17 @@
 package tests;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import org.testng.annotations.Test;
 
-import driver.BrowserType;
-import driver.DriverInstance;
+import pages.StartPage;
 
-public class TestDemo {
+public class TestDemo extends TestBase {
 
     @Test
-    public void test() throws MalformedURLException {
-        DriverInstance driver = new DriverInstance(new URL("http://localhost:4444/wd/hub"), BrowserType.CHROME);
+    public void test() {
         driver.get("https://github.com/");
+        StartPage startPage = new StartPage(driver);
+        startPage.goToLogin();
+
+        System.out.println("blabla");
     }
 }
