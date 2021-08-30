@@ -11,3 +11,5 @@ Q
 !src/test/java/tests/TestBase.java,5/2/526afc557654ef62f1ca42b14a2fa3eea89f159a
 Q
 !src/test/java/tests/TestDemo.java,e/5/e5bf38bf036801804106e5febd2348014b152fce
+W
+'src/test/java/tests/NavigationTest.java,b/b/bb9aa20e30feb9fd21921f12566746d8234e393f
