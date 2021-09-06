@@ -15,12 +15,16 @@ public class DriverInstance extends RemoteWebDriver {
         super(remoteAddress, capabilities);
     }
 
+    public DriverInstance(URL remoteAddress, BrowserType browser) {
+        this(remoteAddress, generateCapabilities(browser));
+    }
+
     public DriverInstance(String remoteAddress, BrowserType browser) throws MalformedURLException {
         this(new URL(remoteAddress), generateCapabilities(browser));
     }
 
     private static Capabilities generateCapabilities(BrowserType browser){
-        Capabilities capabilities = null;
+        Capabilities capabilities;
         switch(browser) {
         case FIREFOX:
             capabilities = new FirefoxOptions();

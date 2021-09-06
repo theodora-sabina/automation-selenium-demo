@@ -13,7 +13,6 @@ import pages.StartPage;
 
 public class CreateNewRepositoryTest extends TestBase {
 
-
     @Test
     public void createRepo() throws InterruptedException {
 
@@ -49,5 +48,9 @@ public class CreateNewRepositoryTest extends TestBase {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.application-main")));
         wait.until(ExpectedConditions.textToBe(By.cssSelector("#repository-owner"), "theodora-sabina"));
         newRepoPage.fillRepositoryFields();
+
+        //FLUENT WAIT
+
+
     }
 }

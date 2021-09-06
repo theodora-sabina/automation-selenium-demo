@@ -1,6 +1,8 @@
 package pages;
 
 import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +12,8 @@ import driver.DriverInstance;
 import widgets.HeaderBar;
 
 public class NewRepositoryPage extends HeaderBar {
+
+    private static final Logger LOG = LogManager.getLogger(NewRepositoryPage.class);
 
     @FindBy(css="input#repository_name")
     WebElement repositoryName;
@@ -44,29 +48,29 @@ public class NewRepositoryPage extends HeaderBar {
         repositoryName.sendKeys("test-repo");
         repositoryDescription.sendKeys("test repo description");
         //Web element methods
-        System.out.println("Value attribute is: " + repositoryDescription.getAttribute("value"));
-        System.out.println("Tag name attribute is: " + repositoryDescription.getTagName());
-        System.out.println("Height is: " + repositoryName.getCssValue("height"));
+
+        LOG.info("Value attribute is: {} ", repositoryDescription.getAttribute("value"));
+        LOG.info("Tag name attribute is: {} ",  repositoryDescription.getTagName());
+        LOG.info("Height is: {} ", repositoryName.getCssValue("height"));
 
         //Radio button -> input type radio
         repositoryAccessType.get(0).click();
         //Get the first element in the list and verify checked attribute
-        System.out.println("Private repository is: "); repositoryAccessType.get(0).getAttribute("checked");
+        LOG.info("Private repository is: "); repositoryAccessType.get(0).getAttribute("checked");
         //Get the second element in the list and check value attribute
-        System.out.println("Public repository access type has value: " + repositoryAccessType.get(1).getAttribute("value"));
+        LOG.info("Public repository access type has value: {}" , repositoryAccessType.get(1).getAttribute("value"));
 
         //Other webElements built-in methods
-        System.out.println("Is enabled: " + publicVisibility.isEnabled());  // can you click it?
-        System.out.println("Is displayed: " + publicVisibility.isDisplayed()); //is it visible?
-        System.out.println("Is selected: " + publicVisibility.isSelected());  //is it selected?
+        LOG.info("Is enabled: {}" , publicVisibility.isEnabled());  // can you click it?
+        LOG.info("Is displayed: {}", publicVisibility.isDisplayed()); //is it visible?
+        LOG.info("Is selected: {}",  publicVisibility.isSelected());  //is it selected?
 
         //Checkbox -> input type checkbox
         addGitignore.click();
-        System.out.println("Is selected: " + addGitignore.isSelected());
-        System.out.println("Is enabled: " + addGitignore.isEnabled());
-        System.out.println("Is displayed: " + addGitignore.isDisplayed());
+        LOG.info("Is selected: {}" , addGitignore.isSelected());
+        LOG.info("Is enabled: {}",  addGitignore.isEnabled());
+        LOG.info("Is displayed: {}",  addGitignore.isDisplayed());
 
-        System.out.println("blabla");
      //   submitButton.submit();
     }
 }
