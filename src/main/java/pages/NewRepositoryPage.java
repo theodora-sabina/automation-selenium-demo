@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -29,6 +30,8 @@ public class NewRepositoryPage extends HeaderBar {
     WebElement publicVisibility;
     @FindBy(css="input[type='radio'][value='private']")
     WebElement privateVisibility;
+    @FindBy(css="summary#repository-owner")
+    WebElement ownerField;
 
     /** Constructor for {@link NewRepositoryPage}
      *
@@ -52,6 +55,7 @@ public class NewRepositoryPage extends HeaderBar {
         LOG.info("Value attribute is: {} ", repositoryDescription.getAttribute("value"));
         LOG.info("Tag name attribute is: {} ",  repositoryDescription.getTagName());
         LOG.info("Height is: {} ", repositoryName.getCssValue("height"));
+        ownerField.findElement(By.cssSelector("img"));
 
         //Radio button -> input type radio
         repositoryAccessType.get(0).click();

@@ -103,6 +103,5 @@ public class NavigationTest extends TestBase{
         driver.findElement(By.xpath("//header[last()]"));//selects last header element
         driver.findElement(By.xpath("//nav/a[last()-4]")); //selects the forth to last anchor element that is child of nav
         driver.findElement(By.xpath("//nav/a[position()=4]"));//selects the 4th a tag, direct child of nav
-
     }
 }
