@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 import driver.BrowserType;
 import driver.DriverInstance;

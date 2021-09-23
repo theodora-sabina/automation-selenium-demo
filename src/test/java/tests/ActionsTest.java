@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class ActionsTest extends TestBase {
 
     @Test
-    public void actionsTest(){
+    public void actionsTest() throws InterruptedException {
 
         goToStartPage();
         //ACTIONS LIBRARY
@@ -39,15 +39,17 @@ public class ActionsTest extends TestBase {
         }
     }
 
-    public void testActions() {
+    public void testActions() throws InterruptedException {
         //Use actions library
         Actions action = new Actions(driver);
 
-        //hover over - not working on chrome??
+        //hover over
         WebElement whyGitHub = driver.findElements(By.cssSelector("summary.HeaderMenu-summary")).get(0);
         action.moveToElement(whyGitHub)
                 .build()
                 .perform();
+
+        Thread.sleep(3000);
 
         //double click
         WebElement title =  driver.findElement(By.cssSelector("h1.h1-mktg"));
@@ -59,7 +61,7 @@ public class ActionsTest extends TestBase {
         action.clickAndHold().perform();
 
 
-        //right click
+        //new tab
         WebElement teamTab = driver.findElement(By.cssSelector("a[href='/team']"));
         teamTab.sendKeys(Keys.chord(Keys.COMMAND,"t", Keys.ENTER));
 

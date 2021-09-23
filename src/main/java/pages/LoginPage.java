@@ -32,8 +32,8 @@ public class LoginPage extends BasePage{
      *
      * @return {@link LoginPage} instance */
     public LoginPage logIn(){
-        loginInput.sendKeys("theodora-sabina");
-        passwordInput.sendKeys("githubpass1!");
+        loginInput.sendKeys("");
+        passwordInput.sendKeys("");
         submitButton.click();
         return this;
     }
